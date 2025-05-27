@@ -41,10 +41,14 @@
                         <a class="nav-link {{ request()->routeIs('hitung.index') ? 'active' : '' }}"
                             href="{{ route('hitung.index') }}">Hitung</a>
                     </li>
-                    <li>
-                        <form method="POST" action="{{ route('logout') }}" onsubmit="return confirm('Apakah Anda yakin ingin logout?');">
+                    <li class="nav-item">
+                        <form method="POST" action="{{ route('logout') }}"
+                            onsubmit="return confirm('Apakah Anda yakin ingin logout?');">
                             @csrf
-                            <button class="btn btn-danger" type="submit">Logout</button>
+                            <button class="btn btn-danger d-flex align-items-center" type="submit" style="gap: 5px;">
+                                <i class='bx bx-arrow-out-right-square-half'></i>
+                                <span>Logout</span>
+                            </button>
                         </form>
                     </li>
                 </ul>
