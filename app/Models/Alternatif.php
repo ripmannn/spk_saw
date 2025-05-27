@@ -15,4 +15,17 @@ class Alternatif extends Model
     public $incrementing = false;
 
     protected $fillable = ['id_alternatif', 'nama_alternatif'];
+
+    public function nilais()
+    {
+        return $this->hasMany(Nilai::class, 'id_alternatif', 'id_alternatif');
+    }
+
+    // Relasi many-to-many dengan kriteria melalui tabel nilai
+    public function kriterias()
+    {
+        return $this->belongsToMany(Kriteria::class, 'tb_nilai', 'id_alternatif', 'id_kriteria')
+                    ->withPivot('nilai')
+                    ->withTimestamps();
+    }
 }

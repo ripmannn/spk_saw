@@ -3,7 +3,7 @@
     <div class="container mt-5">
         <div class="card">
             <div class="card-header bg-primary text-white">
-                <h3 class="mb-0">{{ $title }}</h3>
+                <h3 class="mb-0">{{ $title }} : {{ $alternatif->id_alternatif }}</h3>
             </div>
             <div class="card-body">
                 <form action="{{ route('nilai.update', $alternatif->id_alternatif) }}" method="POST">

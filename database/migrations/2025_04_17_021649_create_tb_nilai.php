@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -17,6 +16,22 @@ return new class extends Migration
             $table->string('id_kriteria', 16);
             $table->double('nilai');
             $table->timestamps();
+
+            $table->unique(['id_alternatif', 'id_kriteria']);
+
+            // Menambahkan foreign key untuk id_alternatif
+            $table->foreign('id_alternatif')
+                ->references('id_alternatif')
+                ->on('tb_alternatif')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            // Menambahkan foreign key untuk id_kriteria
+            $table->foreign('id_kriteria')
+                ->references('id_kriteria')
+                ->on('tb_kriteria')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

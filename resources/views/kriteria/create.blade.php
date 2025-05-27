@@ -4,7 +4,6 @@
     
         <form action="{{ route('kriteria.store') }}" method="POST">
             @csrf
-            
             <div class="mb-3">
                 <label for="nama_kriteria" class="form-label">Nama</label>
                 <input type="text" class="form-control" id="nama_kriteria" name="nama_kriteria" required>

@@ -1,7 +1,7 @@
 @extends('app')
 @section('content')
     <div class="container mt-5">
-    
+        <h2 class="mb-3">Kriteria {{ $kriteria->id_kriteria }}</h2>
         <form action="{{ route('kriteria.update', $kriteria->id_kriteria) }}" method="POST">
             @csrf
             @method('PUT')

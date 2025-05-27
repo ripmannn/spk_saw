@@ -36,8 +36,17 @@ class HitungController extends Controller
         }
         $normal = [];
         foreach ($nilais as $key => $val) {
-            foreach ($val as $k => $v) {
-                $normal[$key][$k] = strtolower($kriterias[$k]->atribut) == 'benefit' ? $v / $minmax[$k]['max'] : $minmax[$k]['min'] / $v;
+            foreach ($kriterias as $k => $kriteria) {
+            if (isset($val[$k]) && isset($minmax[$k]['min']) && isset($minmax[$k]['max']) && $val[$k] != 0) {
+                if (strtolower($kriteria->atribut) == 'benefit') {
+                $normal[$key][$k] = $val[$k] / ($minmax[$k]['max'] ?: 1);
+                } else {
+                $normal[$key][$k] = ($minmax[$k]['min'] ?: 1) / $val[$k];
+                }
+            } else {
+                // Jika nilai tidak ada, set ke null atau 0 sesuai kebutuhan
+                $normal[$key][$k] = null;
+            }
             }
         }
         $terbobot = [];

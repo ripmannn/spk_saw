@@ -1,5 +1,6 @@
 @extends('app')
 @section('content')
+    <h2 class="py-3">Alternatif {{ $alternatif->id_alternatif }}</h2>
     <form action="{{ route('alternatif.update', $alternatif->id_alternatif) }}" method="POST">
         @csrf
         @method('PUT')

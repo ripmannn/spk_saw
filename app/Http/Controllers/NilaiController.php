@@ -31,11 +31,21 @@ class NilaiController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+   public function create()
     {
         $title = 'Tambah Nilai';
-        $alternatifs = Alternatif::all();
+
+        $idsAlternatifSudahAdaNilai = Nilai::select('id_alternatif')
+                                          ->distinct()
+                                          ->pluck('id_alternatif')
+                                          ->all();
+
+        // Variabel $alternatifs sekarang akan berisi alternatif yang belum dinilai
+        $alternatifs = Alternatif::whereNotIn('id_alternatif', $idsAlternatifSudahAdaNilai)
+                                 ->get();
+
         $kriterias = Kriteria::all();
+
         return view('nilai.create', compact('title', 'alternatifs', 'kriterias'));
     }
 

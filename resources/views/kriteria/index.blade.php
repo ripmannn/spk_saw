@@ -1,6 +1,6 @@
 @extends('app')
 @section('content')
-    <a href="{{ route('kriteria.create') }}" class="btn btn-primary mb-3">+ Tambah Kriteria</a>
+    <a href="{{ route('kriteria.create') }}" class="btn btn-primary mb-3"> <i class='bx  bx-plus'></i> Tambah Kriteria</a>
 
     <div class="table-responsive">
         <table class="table table-bordered table-hover table-striped m-0">
@@ -21,14 +21,13 @@
                         <td>{{ $kriteria->atribut }}</td>
                         <td>{{ $kriteria->bobot }}</td>
                         <td>
-                            <a href="{{ route('kriteria.edit', $kriteria->id_kriteria) }}"
-                                class="btn btn-sm btn-warning">Edit</a>
+                            <a href="{{ route('kriteria.edit', $kriteria->id_kriteria) }}" class="btn btn-sm btn-warning"> <i class='bx bx-edit'></i> Edit</a>
                             <form action="{{ route('kriteria.destroy', $kriteria->id_kriteria) }}" method="POST"
                                 style="display:inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" onclick="return confirm('Yakin ingin hapus?')"
-                                    class="btn btn-sm btn-danger">Hapus</button>
+                                    class="btn btn-sm btn-danger"> <i class='bx  bx-trash'  ></i> Hapus</button>
                             </form>
                         </td>
                     </tr>

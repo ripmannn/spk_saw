@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -43,27 +44,35 @@ class DatabaseSeeder extends Seeder
                 'nama_kriteria' => 'Rata-rata raport',
                 'atribut' => 'Benefit',
                 'bobot' => 0.40,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ],
             [
                 'id_kriteria' => 'C02',
                 'nama_kriteria' => 'Sikap',
                 'atribut' => 'Benefit',
                 'bobot' => 0.20,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ],
             [
                 'id_kriteria' => 'C03',
                 'nama_kriteria' => 'Absensi',
                 'atribut' => 'Benefit',
                 'bobot' => 0.20,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ],
             [
                 'id_kriteria' => 'C04',
                 'nama_kriteria' => 'Ekstrakurikuler',
                 'atribut' => 'Benefit',
                 'bobot' => 0.20,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ],
         ]);
 
-        DB::statement("INSERT INTO tb_nilai (id_alternatif, id_kriteria, nilai) SELECT id_alternatif, id_kriteria, ROUND(RAND() * 5) FROM tb_alternatif, tb_kriteria");
+        DB::statement("INSERT INTO tb_nilai (id_alternatif, id_kriteria, nilai) SELECT id_alternatif, id_kriteria, FLOOR(1 + RAND() * 5) FROM tb_alternatif, tb_kriteria");
     }
 }
