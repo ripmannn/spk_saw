@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2025 at 08:36 AM
+-- Generation Time: May 27, 2025 at 05:27 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -113,12 +113,12 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '0001_01_01_000000_create_users_table', 1),
-(2, '0001_01_01_000001_create_cache_table', 1),
-(3, '0001_01_01_000002_create_jobs_table', 1),
-(4, '2025_04_17_021631_create_tb_alternatif', 1),
-(5, '2025_04_17_021642_create_tb_kriteria', 1),
-(6, '2025_04_17_021649_create_tb_nilai', 1);
+(19, '0001_01_01_000000_create_users_table', 1),
+(20, '0001_01_01_000001_create_cache_table', 1),
+(21, '0001_01_01_000002_create_jobs_table', 1),
+(22, '2025_04_17_021631_create_tb_alternatif', 1),
+(23, '2025_04_17_021642_create_tb_kriteria', 1),
+(24, '2025_04_17_021649_create_tb_nilai', 1);
 
 -- --------------------------------------------------------
 
@@ -152,7 +152,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('iZcdZsisieVdnAJzTlTB05MrWTvI1pe5RJpu0fRl', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoidVk1QVl0am1jVVhZQ3lPZjZ5RlE1ZEdNZ1RqSkVwa01CUkxjQU5JcyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1744871711);
+('4aR2CtxftAPE7JWm8qEmYfzk3dO1pGNsweKhDPD5', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiQUU5ZHI4MjdZTnJUanNrMnZzYzNPMXhJeU5DMzVUdEhFTDlBQk1WTSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyMToiaHR0cDovLzEyNy4wLjAuMTo4MDAwIjt9czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9sb2dpbiI7fX0=', 1748359622);
 
 -- --------------------------------------------------------
 
@@ -172,12 +172,9 @@ CREATE TABLE `tb_alternatif` (
 --
 
 INSERT INTO `tb_alternatif` (`id_alternatif`, `nama_alternatif`, `created_at`, `updated_at`) VALUES
-('A01', 'Arief', NULL, NULL),
-('A02', 'Arya', NULL, NULL),
-('A03', 'Bewok', NULL, NULL),
-('A04', 'bintang', '2025-04-16 23:27:11', '2025-04-16 23:27:11'),
-('A05', 'udin', '2025-04-16 23:27:17', '2025-04-16 23:27:17'),
-('A06', 'aris', '2025-04-16 23:27:36', '2025-04-16 23:27:36');
+('A01', 'Aurora', NULL, '2025-05-27 06:53:34'),
+('A02', 'Faeza', NULL, '2025-05-27 06:54:58'),
+('A03', 'Gema', NULL, '2025-05-27 06:55:43');
 
 -- --------------------------------------------------------
 
@@ -199,10 +196,11 @@ CREATE TABLE `tb_kriteria` (
 --
 
 INSERT INTO `tb_kriteria` (`id_kriteria`, `nama_kriteria`, `atribut`, `bobot`, `created_at`, `updated_at`) VALUES
-('C01', 'Rata-rata raport', 'benefit', 0.4, NULL, '2025-04-16 23:26:45'),
-('C02', 'Sikap', 'benefit', 0.2, NULL, '2025-04-16 23:19:08'),
-('C03', 'Absensi', 'benefit', 0.2, NULL, '2025-04-16 23:19:34'),
-('C04', 'Ekstrakurikuler', 'benefit', 0.2, NULL, '2025-04-16 23:27:01');
+('C01', 'IPK', 'benefit', 3, '2025-05-27 06:18:23', '2025-05-27 07:43:41'),
+('C02', 'Tes Pemrograman', 'benefit', 2, '2025-05-27 06:18:23', '2025-05-27 07:43:44'),
+('C03', 'Kemampuan Mengajar', 'benefit', 2, '2025-05-27 06:18:23', '2025-05-27 07:43:47'),
+('C04', 'Nilai Referensi', 'benefit', 2, '2025-05-27 06:18:23', '2025-05-27 07:43:50'),
+('C05', 'Kerja sama', 'benefit', 3, '2025-05-27 07:40:07', '2025-05-27 07:43:52');
 
 -- --------------------------------------------------------
 
@@ -224,30 +222,21 @@ CREATE TABLE `tb_nilai` (
 --
 
 INSERT INTO `tb_nilai` (`id_nilai`, `id_alternatif`, `id_kriteria`, `nilai`, `created_at`, `updated_at`) VALUES
-(41, 'A01', 'C01', 3, '2025-04-16 23:29:36', '2025-04-16 23:29:36'),
-(42, 'A01', 'C02', 3, '2025-04-16 23:29:36', '2025-04-16 23:29:36'),
-(43, 'A01', 'C03', 1, '2025-04-16 23:29:36', '2025-04-16 23:29:36'),
-(44, 'A01', 'C04', 3, '2025-04-16 23:29:36', '2025-04-16 23:29:36'),
-(45, 'A02', 'C01', 4, '2025-04-16 23:33:44', '2025-04-16 23:33:44'),
-(46, 'A02', 'C02', 3, '2025-04-16 23:33:44', '2025-04-16 23:33:44'),
-(47, 'A02', 'C03', 4, '2025-04-16 23:33:44', '2025-04-16 23:33:44'),
-(48, 'A02', 'C04', 4, '2025-04-16 23:33:44', '2025-04-16 23:33:44'),
-(49, 'A03', 'C01', 2, '2025-04-16 23:33:56', '2025-04-16 23:33:56'),
-(50, 'A03', 'C02', 2, '2025-04-16 23:33:56', '2025-04-16 23:33:56'),
-(51, 'A03', 'C03', 3, '2025-04-16 23:33:56', '2025-04-16 23:33:56'),
-(52, 'A03', 'C04', 3, '2025-04-16 23:33:56', '2025-04-16 23:33:56'),
-(53, 'A04', 'C01', 2, '2025-04-16 23:34:08', '2025-04-16 23:34:08'),
-(54, 'A04', 'C02', 3, '2025-04-16 23:34:08', '2025-04-16 23:34:08'),
-(55, 'A04', 'C03', 3, '2025-04-16 23:34:08', '2025-04-16 23:34:08'),
-(56, 'A04', 'C04', 3, '2025-04-16 23:34:08', '2025-04-16 23:34:08'),
-(57, 'A05', 'C01', 3, '2025-04-16 23:34:21', '2025-04-16 23:34:21'),
-(58, 'A05', 'C02', 3, '2025-04-16 23:34:21', '2025-04-16 23:34:21'),
-(59, 'A05', 'C03', 4, '2025-04-16 23:34:21', '2025-04-16 23:34:21'),
-(60, 'A05', 'C04', 4, '2025-04-16 23:34:21', '2025-04-16 23:34:21'),
-(61, 'A06', 'C01', 3, '2025-04-16 23:34:28', '2025-04-16 23:34:28'),
-(62, 'A06', 'C02', 3, '2025-04-16 23:34:28', '2025-04-16 23:34:28'),
-(63, 'A06', 'C03', 4, '2025-04-16 23:34:28', '2025-04-16 23:34:28'),
-(64, 'A06', 'C04', 4, '2025-04-16 23:34:28', '2025-04-16 23:34:28');
+(1, 'A01', 'C01', 5, NULL, '2025-05-27 07:41:45'),
+(2, 'A02', 'C01', 4, NULL, '2025-05-27 06:56:38'),
+(3, 'A03', 'C01', 5, NULL, '2025-05-27 07:42:14'),
+(4, 'A01', 'C02', 3, NULL, '2025-05-27 06:56:21'),
+(5, 'A02', 'C02', 4, NULL, '2025-05-27 07:41:57'),
+(6, 'A03', 'C02', 3, NULL, '2025-05-27 07:42:14'),
+(7, 'A01', 'C03', 4, NULL, '2025-05-27 07:41:45'),
+(8, 'A02', 'C03', 4, NULL, '2025-05-27 06:56:38'),
+(9, 'A03', 'C03', 3, NULL, '2025-05-27 06:57:55'),
+(10, 'A01', 'C04', 3, NULL, '2025-05-27 06:56:21'),
+(11, 'A02', 'C04', 2, NULL, '2025-05-27 07:41:57'),
+(12, 'A03', 'C04', 1, NULL, '2025-05-27 07:42:14'),
+(28, 'A01', 'C05', 2, '2025-05-27 07:41:45', '2025-05-27 07:41:45'),
+(29, 'A02', 'C05', 3, '2025-05-27 07:41:57', '2025-05-27 07:41:57'),
+(30, 'A03', 'C05', 4, '2025-05-27 07:42:14', '2025-05-27 07:42:14');
 
 -- --------------------------------------------------------
 
@@ -265,6 +254,13 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(3, 'Admin User', 'admin@gmail.com', NULL, '$2y$12$scvvhEgvnst7urdluVj1.uQyiZbiSuiuO8fjkp5PJYPaH6P6cd.By', 'daQ3JnohSq1EPhVdOMIiAtMfivqvzJe8oxyqJ2qU5s0GmtbxyBNWdt9IY2WC', '2025-05-27 08:05:41', '2025-05-27 08:05:41');
 
 --
 -- Indexes for dumped tables
@@ -338,7 +334,9 @@ ALTER TABLE `tb_kriteria`
 -- Indexes for table `tb_nilai`
 --
 ALTER TABLE `tb_nilai`
-  ADD PRIMARY KEY (`id_nilai`);
+  ADD PRIMARY KEY (`id_nilai`),
+  ADD UNIQUE KEY `tb_nilai_id_alternatif_id_kriteria_unique` (`id_alternatif`,`id_kriteria`),
+  ADD KEY `tb_nilai_id_kriteria_foreign` (`id_kriteria`);
 
 --
 -- Indexes for table `users`
@@ -367,19 +365,30 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tb_nilai`
 --
 ALTER TABLE `tb_nilai`
-  MODIFY `id_nilai` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id_nilai` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tb_nilai`
+--
+ALTER TABLE `tb_nilai`
+  ADD CONSTRAINT `tb_nilai_id_alternatif_foreign` FOREIGN KEY (`id_alternatif`) REFERENCES `tb_alternatif` (`id_alternatif`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_nilai_id_kriteria_foreign` FOREIGN KEY (`id_kriteria`) REFERENCES `tb_kriteria` (`id_kriteria`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
