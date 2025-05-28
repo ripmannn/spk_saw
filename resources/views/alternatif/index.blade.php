@@ -1,6 +1,6 @@
 @extends('app')
 @section('content')
-<a href="{{ route('alternatif.create') }}" class="btn btn-primary mb-3"><i class='bx  bx-plus'></i> Tambah Alternatif</a>
+<a href="{{ route('alternatif.create') }}" class="btn btn-primary mb-3 d-flex align-items-center" style="gap: 5px; width: fit-content;"><i class='bx  bx-plus'></i> Tambah Alternatif</a>
     <div class="card">
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped m-0">

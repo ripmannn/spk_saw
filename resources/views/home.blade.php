@@ -1,6 +1,6 @@
 @extends('app')
 @section('content')
-    <div class="container py-4">
+    <div class=" py-2">
         {{-- Cek apakah pengguna sudah login --}}
         @auth
             <div class="alert alert-primary" role="alert">

@@ -14,7 +14,7 @@
                             <option value="">-- Pilih Alternatif --</option> {{-- Baris ini baik untuk ditambahkan --}}
                             @foreach ($alternatifs as $a)
                                 {{-- Tidak perlu @if di sini karena $alternatifs sudah difilter dari controller --}}
-                                <option value="{{ $a->id_alternatif }}">{{ $a->nama_alternatif }}</option>
+                                <option value="{{ $a->id_alternatif }}">{{ $a->nama_alternatif }} ({{ $a->id_alternatif }})</option>
                             @endforeach
                         </select>
                     </div>

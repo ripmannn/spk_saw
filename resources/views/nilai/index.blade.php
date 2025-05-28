@@ -1,6 +1,6 @@
 @extends('app')
 @section('content')
-    <a href="{{ route('nilai.create') }}" class="btn btn-primary mb-3"><i class='bx  bx-plus'></i> Tambah Nilai</a>
+    <a href="{{ route('nilai.create') }}" class="btn btn-primary mb-3 d-flex align-items-center" style="gap: 5px; width: fit-content;"><i class='bx  bx-plus'></i> <span>Tambah Nilai</span></a>
 
     <div class="table-responsive">
         <table class="table table-bordered table-hover table-striped m-0">
