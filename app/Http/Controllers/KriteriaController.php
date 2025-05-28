@@ -32,10 +32,9 @@ class KriteriaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            
-            'nama_kriteria' => 'required',
+            'nama_kriteria' => 'required|unique:tb_kriteria,nama_kriteria',
             'atribut' => 'required|in:Benefit,Cost',
-            'bobot' => 'required|numeric|min:0|max:1'
+            'bobot' => 'required|numeric|min:0|max:5'
         ]);
 
         $last = Kriteria::orderBy('id_kriteria', 'desc')->first();

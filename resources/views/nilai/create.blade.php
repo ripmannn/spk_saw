@@ -23,7 +23,12 @@
                         <div class="mb-3">
                             <label for="nilai_{{ $k->id_kriteria }}" class="form-label">{{ $k->nama_kriteria }} : ( {{$k->id_kriteria}} )</label>
                             <input type="number" step="0.01" name="nilai[{{ $k->id_kriteria }}]"
-                                id="nilai_{{ $k->id_kriteria }}" class="form-control" required>
+                                id="nilai_{{ $k->id_kriteria }}" class="form-control @error('nilai.'.$k->id_kriteria) is-invalid @enderror" required>
+                            @error('nilai.'.$k->id_kriteria)
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     @endforeach
 

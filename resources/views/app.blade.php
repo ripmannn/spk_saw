@@ -15,129 +15,124 @@
     <div class="d-flex flex-column flex-md-row min-vh-100">
         <!-- Sidebar -->
         <!-- Sidebar untuk desktop (hidden di mobile) -->
-<nav id="sidebarMenu" class="bg-primary text-white p-3 flex-shrink-0 d-none d-md-block" style="width: 280px; height: 100vh; position: sticky; top: 0;">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <a href="/" class="d-flex align-items-center text-white text-decoration-none">
-            <span class="fs-4 fw-bold">SAW Admin</span>
-        </a>
-    </div>
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item">
-            <a href="{{ route('home') }}" class="nav-link text-white {{ request()->routeIs('home') ? 'active bg-secondary text-primary' : '' }}">
-                <i class="bi bi-house-door me-2"></i>
-                Home
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('kriteria.index') }}" class="nav-link text-white {{ request()->routeIs('kriteria.index') ? 'active bg-secondary text-primary' : '' }}">
-                <i class="bi bi-list-check me-2"></i>
-                Kriteria
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('alternatif.index') }}" class="nav-link text-white {{ request()->routeIs('alternatif.index') ? 'active bg-secondary text-primary' : '' }}">
-                <i class="bi bi-table me-2"></i>
-                Alternatif
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('nilai.index') }}" class="nav-link text-white {{ request()->routeIs('nilai.index') ? 'active bg-secondary text-primary' : '' }}">
-                <i class="bi bi-clipboard-data me-2"></i>
-                Nilai
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('hitung.index') }}" class="nav-link text-white {{ request()->routeIs('hitung.index') ? 'active bg-secondary text-primary' : '' }}">
-                <i class="bi bi-calculator me-2"></i>
-                Hitung
-            </a>
-        </li>
-    </ul>
-    <hr>
-    <div class="dropdown">
-        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://via.placeholder.com/32" alt="Admin" width="32" height="32" class="rounded-circle me-2">
-            <strong>Admin</strong>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li>
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit" class="dropdown-item">Logout</button>
-                </form>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-<!-- Offcanvas untuk mobile -->
-<div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel" style="width: 100%;">
-    <div class="offcanvas-header bg-primary text-white">
-        <h5 class="offcanvas-title" id="offcanvasSidebarLabel">SAW Admin</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body bg-primary text-white p-0">
-        <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item">
-                <a href="{{ route('home') }}" class="nav-link text-white {{ request()->routeIs('home') ? 'active bg-secondary text-primary' : '' }}">
-                    <i class="bi bi-house-door me-2"></i>
-                    Home
+        <nav id="sidebarMenu" class="bg-primary text-white p-3 flex-shrink-0 d-none d-md-block"
+            style="width: 280px; height: 100vh; position: sticky; top: 0;">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <a href="/" class="d-flex align-items-center text-white text-decoration-none">
+                    <span class="fs-4 fw-bold">SAW Admin</span>
                 </a>
-            </li>
-            <li>
-                <a href="{{ route('kriteria.index') }}" class="nav-link text-white {{ request()->routeIs('kriteria.index') ? 'active bg-secondary text-primary' : '' }}">
-                    <i class="bi bi-list-check me-2"></i>
-                    Kriteria
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('alternatif.index') }}" class="nav-link text-white {{ request()->routeIs('alternatif.index') ? 'active bg-secondary text-primary' : '' }}">
-                    <i class="bi bi-table me-2"></i>
-                    Alternatif
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('nilai.index') }}" class="nav-link text-white {{ request()->routeIs('nilai.index') ? 'active bg-secondary text-primary' : '' }}">
-                    <i class="bi bi-clipboard-data me-2"></i>
-                    Nilai
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('hitung.index') }}" class="nav-link text-white {{ request()->routeIs('hitung.index') ? 'active bg-secondary text-primary' : '' }}">
-                    <i class="bi bi-calculator me-2"></i>
-                    Hitung
-                </a>
-            </li>
-        </ul>
-        <hr>
-        <div class="dropdown p-3">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://via.placeholder.com/32" alt="Admin" width="32" height="32" class="rounded-circle me-2">
-                <strong>Admin</strong>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser2">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><hr class="dropdown-divider"></li>
+            </div>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="{{ route('home') }}"
+                        class="nav-link text-white {{ request()->routeIs('home') ? 'active bg-secondary text-primary' : '' }}">
+                        <i class="bi bi-house-door me-2"></i>
+                        Home
+                    </a>
+                </li>
                 <li>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit" class="dropdown-item">Logout</button>
-                    </form>
+                    <a href="{{ route('kriteria.index') }}"
+                        class="nav-link text-white {{ request()->routeIs('kriteria.index') || request()->routeIs('kriteria.create') || request()->routeIs('kriteria.edit') ? 'active bg-secondary text-primary' : '' }}">
+                        <i class="bi bi-list-check me-2"></i>
+                        Kriteria
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('alternatif.index') }}"
+                        class="nav-link text-white {{ request()->routeIs('alternatif.index') || request()->routeIs('alternatif.create') || request()->routeIs('alternatif.edit') ? 'active bg-secondary text-primary' : '' }}">
+                        <i class="bi bi-table me-2"></i>
+                        Alternatif
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('nilai.index') }}"
+                        class="nav-link text-white {{ request()->routeIs('nilai.index') || request()->routeIs('nilai.create') || request()->routeIs('nilai.edit') ? 'active bg-secondary text-primary' : '' }}">
+                        <i class="bi bi-clipboard-data me-2"></i>
+                        Nilai
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('hitung.index') }}"
+                        class="nav-link text-white {{ request()->routeIs('hitung.index') ? 'active bg-secondary text-primary' : '' }}">
+                        <i class="bi bi-calculator me-2"></i>
+                        Hitung
+                    </a>
                 </li>
             </ul>
-        </div>
-    </div>
-</div>
+            <hr>
+            <form method="POST" action="{{ route('logout') }}"
+                onsubmit="return confirm('Apakah Anda yakin ingin logout?');">
+                @csrf
+                <button type="submit" class="btn btn-danger w-100">
+                    <i class="bi bi-box-arrow-right me-2"></i> Logout
+                </button>
+            </form>
+        </nav>
 
-<!-- Tombol toggle untuk mobile -->
-<button class="btn btn-primary d-md-none position-fixed top-0 end-0 m-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar" style="z-index: 1051;">
-    <i class="bi bi-list"></i>
-</button>
+        <!-- Offcanvas untuk mobile -->
+        <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="offcanvasSidebar"
+            aria-labelledby="offcanvasSidebarLabel" style="width: 100%;">
+            <div class="offcanvas-header bg-primary text-white">
+                <h5 class="offcanvas-title" id="offcanvasSidebarLabel">SAW Admin</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body bg-primary text-white p-0">
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="{{ route('home') }}"
+                            class="nav-link text-white {{ request()->routeIs('home') ? 'active bg-secondary text-primary' : '' }}">
+                            <i class="bi bi-house-door me-2"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('kriteria.index') }}"
+                            class="nav-link text-white {{ request()->routeIs('kriteria.index') || request()->routeIs('kriteria.create') || request()->routeIs('kriteria.edit') ? 'active bg-secondary text-primary' : '' }}">
+                            <i class="bi bi-list-check me-2"></i>
+                            Kriteria
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('alternatif.index') }}"
+                            class="nav-link text-white {{ request()->routeIs('alternatif.index') || request()->routeIs('alternatif.create') || request()->routeIs('alternatif.edit') ? 'active bg-secondary text-primary' : '' }}">
+                            <i class="bi bi-table me-2"></i>
+                            Alternatif
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('nilai.index') }}"
+                            class="nav-link text-white {{ request()->routeIs('nilai.index') || request()->routeIs('nilai.create') || request()->routeIs('nilai.edit') ? 'active bg-secondary text-primary' : '' }}">
+                            <i class="bi bi-clipboard-data me-2"></i>
+                            Nilai
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('hitung.index') }}"
+                            class="nav-link text-white {{ request()->routeIs('hitung.index') ? 'active bg-secondary text-primary' : '' }}">
+                            <i class="bi bi-calculator me-2"></i>
+                            Hitung
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+                <form class="p-3" method="POST" action="{{ route('logout') }}"
+                    onsubmit="return confirm('Apakah Anda yakin ingin logout?');">
+                    @csrf
+                    <button type="submit" class="btn btn-danger w-100">
+                        <i class="bi bi-box-arrow-right me-2"></i> Logout
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Tombol toggle untuk mobile -->
+        <button class="btn btn-primary d-md-none position-fixed top-0 end-0 m-3" type="button"
+            data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar"
+            style="z-index: 1051;">
+            <i class="bi bi-list"></i>
+        </button>
 
         <!-- Main Content -->
         <main class="flex-fill p-4" style="min-width:0;">
@@ -151,7 +146,7 @@
                         </ol>
                     </nav>
                 </div>
-                
+
             </div>
             @yield('content')
         </main>

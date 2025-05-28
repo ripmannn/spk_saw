@@ -9,7 +9,7 @@
                     <th>Id</th>
                     <th>Nama</th>
                     @foreach ($kriterias as $kriteria)
-                        <th>{{ $kriteria->nama_kriteria }}</th>
+                        <th>{{ $kriteria->nama_kriteria }} : ({{ $kriteria->id_kriteria }})</th>
                     @endforeach
                     <th>Aksi</th>
                 </tr>

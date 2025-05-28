@@ -56,7 +56,7 @@ class NilaiController extends Controller
     {
         $request->validate([
             'id_alternatif' => 'required',
-            'nilai.*' => 'required|numeric'
+            'nilai.*' => 'required|numeric|min:0|max:5'
         ]);
 
         foreach ($request->nilai as $id_kriteria => $nilai) {

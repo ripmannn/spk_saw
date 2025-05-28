@@ -55,7 +55,8 @@
             <div class="card-body">
                 <div class="text-center mb-4">
                     <i class='bx bx-lock fs-1 text-primary mb-2'></i>
-                    <h2 class="card-title mb-0 fw-bold">Login Pengguna</h2>
+                    <h2 class="card-title mb-0 fw-bold">Login</h2>
+                    <h2 class="card-title mb-0 fw-bold">SPK SAW</h2>
                 </div>
                
                 {{-- Menampilkan error validasi umum --}}
