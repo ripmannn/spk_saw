@@ -61,8 +61,7 @@
                 </li>
             </ul>
             <hr>
-            <form method="POST" action="{{ route('logout') }}"
-                onsubmit="return confirm('Apakah Anda yakin ingin logout?');">
+            <form method="POST" class="form-logout" action="{{ route('logout') }}">
                 @csrf
                 <button type="submit" class="btn btn-danger w-100">
                     <i class="bi bi-box-arrow-right me-2"></i> Logout
@@ -117,8 +116,7 @@
                     </li>
                 </ul>
                 <hr>
-                <form class="p-3" method="POST" action="{{ route('logout') }}"
-                    onsubmit="return confirm('Apakah Anda yakin ingin logout?');">
+                <form class="p-3 form-logout" method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" class="btn btn-danger w-100">
                         <i class="bi bi-box-arrow-right me-2"></i> Logout
@@ -155,6 +153,12 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    !-- Tambahkan SweetAlert JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Panggil file eksternal -->
+    <script src="{{ asset('js/sweetalert-confirm.js') }}"></script>
     @stack('scripts')
 </body>
 

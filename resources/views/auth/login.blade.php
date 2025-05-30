@@ -8,45 +8,9 @@
     <!-- Bootstrap 5 CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
-    <style>
-        body {
-            background-color: #f4f4f4;
-            min-height: 100vh;
-        }
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 
-        .login-container {
-            max-width: 400px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .card {
-            width: 100%;
-            padding: 32px 24px;
-        }
-
-        @media (min-width: 576px) {
-            .login-container {
-                max-width: 450px;
-            }
-
-            .card {
-                padding: 40px 32px;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .login-container {
-                max-width: 500px;
-            }
-
-            .card {
-                padding: 48px 40px;
-            }
-        }
-    </style>
+    
 </head>
 
 <body>
@@ -58,7 +22,7 @@
                     <h2 class="card-title mb-0 fw-bold">Login</h2>
                     <h2 class="card-title mb-0 fw-bold">SPK SAW</h2>
                 </div>
-               
+
                 {{-- Menampilkan error validasi umum --}}
                 @if ($errors->any() && !$errors->has('email') && !$errors->has('password'))
                     <div class="alert alert-danger">
@@ -93,8 +57,14 @@
 
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input id="password" type="password" name="password" required
-                            class="form-control @error('password') is-invalid @enderror">
+                        <div class="input-group">
+                            <input id="password" type="password" name="password" required
+                                class="form-control @error('password') is-invalid @enderror">
+                            <button type="button" class="btn btn-outline-secondary" tabindex="-1"
+                                id="toggle-password">
+                                <i class="bx bx-eye-alt" id="toggle-password-icon"></i>
+                            </button>
+                        </div>
                         @error('password')
                             <div class="invalid-feedback d-block">
                                 {{ $message }}
@@ -102,11 +72,6 @@
                         @enderror
                     </div>
 
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" name="remember" id="remember" class="form-check-input"
-                            {{ old('remember') ? 'checked' : '' }}>
-                        <label for="remember" class="form-check-label">Ingat Saya</label>
-                    </div>
 
                     <div class="d-grid">
                         <button type="submit" class="btn btn-primary">Login</button>
@@ -117,6 +82,7 @@
     </div>
     <!-- Bootstrap 5 JS Bundle CDN (optional, for interactivity) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('js/password-reveal.js') }}"></script>
 </body>
 
 </html>

@@ -56,7 +56,7 @@ class KriteriaController extends Controller
             'atribut' => $request->atribut,
             'bobot' => $request->bobot,
         ]);
-        return redirect()->route('kriteria.index')->with('success', 'Data berhasil ditambahkan');
+        return redirect()->route('kriteria.index')->with('success', 'Kriteria berhasil ditambahkan');
     }
 
     /**
@@ -88,7 +88,7 @@ class KriteriaController extends Controller
         ]);
 
         $kriteria->update($request->all());
-        return redirect()->route('kriteria.index')->with('success', 'Data berhasil diupdate');
+        return redirect()->route('kriteria.index')->with('success', 'Kriteria berhasil diupdate');
     }
 
     /**
@@ -97,6 +97,6 @@ class KriteriaController extends Controller
     public function destroy(Kriteria $kriteria)
     {
         $kriteria->delete();
-        return redirect()->route('kriteria.index')->with('success', 'Data berhasil dihapus');
+        return redirect()->route('kriteria.index')->with('success', 'Kriteria berhasil dihapus');
     }
 }

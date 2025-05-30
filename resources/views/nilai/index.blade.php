@@ -2,6 +2,13 @@
 @section('content')
     <a href="{{ route('nilai.create') }}" class="btn btn-primary mb-3 d-flex align-items-center" style="gap: 5px; width: fit-content;"><i class='bx  bx-plus'></i> <span>Tambah Nilai</span></a>
 
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     <div class="table-responsive">
         <table class="table table-bordered table-hover table-striped m-0">
             <thead>
@@ -27,8 +34,7 @@
                         <form action="{{ route('nilai.destroy', $key) }}" method="POST" style="display:inline">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" onclick="return confirm('Hapus data ini?')"
-                                class="btn btn-sm btn-danger"><i class='bx  bx-trash'  ></i> Hapus</button>
+                            <button type="submit" class="btn btn-sm btn-danger btn-delete"><i class='bx  bx-trash'  ></i> Hapus</button>
                         </form>
                     </td>
 
