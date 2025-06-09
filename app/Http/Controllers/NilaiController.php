@@ -96,7 +96,7 @@ class NilaiController extends Controller
     public function update(Request $request, $id_alternatif)
     {
         $request->validate([
-            'nilai.*' => 'required|numeric'
+            'nilai.*' => 'required|numeric|min:1|max:5'
         ]);
 
         foreach ($request->nilai as $id_kriteria => $v) {

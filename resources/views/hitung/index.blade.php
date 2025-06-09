@@ -2,27 +2,27 @@
 @section('content')
 
 {{-- perangkingan --}}
-    <div class="card mb-3">
-        <div class="card-header bg-primary text-white">
-            <h5 class="m-0">Perangkingan</h5>
+    <div class="card mb-5" style="border: 4px solid #000; box-shadow: 8px 8px 0 #000;">
+        <div class="card-header bg-primary" style="border-bottom: 4px solid #000; font-family: monospace; color: #000;">
+            <h5 class="m-0" style="text-transform: uppercase; letter-spacing: 2px;">PERANGKINGAN</h5>
         </div>
         <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped m-0">
-                <thead class="thead-dark">
-                    <tr>
-                        <th class="text-center">Rank</th>
-                        <th class="text-center">Id</th>
-                        <th class="text-center">Nama Alternatif</th>
-                        <th class="text-center">Total</th>
+            <table class="table table-bordered m-0" style="border-collapse: collapse;">
+                <thead>
+                    <tr style="background-color: #000;">
+                        <th class="text-center" style="border: 3px solid #000; color: #000;">RANK</th>
+                        <th class="text-center" style="border: 3px solid #000; color: #000;">ID</th>
+                        <th class="text-center" style="border: 3px solid #000; color: #000;">NAMA ALTERNATIF</th>
+                        <th class="text-center" style="border: 3px solid #000; color: #000;">TOTAL</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($rank as $key => $val)
-                        <tr>
-                            <td class="text-center font-weight-bold">{{ $val }}</td>
-                            <td class="text-center">{{ $key }}</td>
-                            <td>{{ $alternatifs[$key]->nama_alternatif }}</td>
-                            <td class="text-center text-success font-weight-bold">{{ round($total[$key], 4) }}</td>
+                        <tr style="background-color: {{ $loop->odd ? '#fff' : '#eee' }};">
+                            <td class="text-center font-weight-bold" style="border: 3px solid #000; font-size: 1.1rem; color: #000;">{{ $val }}</td>
+                            <td class="text-center" style="border: 3px solid #000; color: #000;">{{ $key }}</td>
+                            <td style="border: 3px solid #000; color: #000;">{{ $alternatifs[$key]->nama_alternatif }}</td>
+                            <td class="text-center font-weight-bold" style="border: 3px solid #000; color: #000;">{{ round($total[$key], 4) }}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -31,41 +31,40 @@
     </div>
 
 {{-- data nilai --}}
-    <div class="card mb-3">
-        <div class="card-header">
-            Data Nilai
+    <div class="card mb-5" style="border: 4px solid #000; box-shadow: 8px 8px 0 #000;">
+        <div class="card-header" style="border-bottom: 4px solid #000; background-color: #ff6b6b; color: #000; font-family: monospace;">
+            <h5 class="m-0" style="text-transform: uppercase; letter-spacing: 2px;">DATA NILAI</h5>
         </div>
         <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped m-0">
+            <table class="table table-bordered m-0" style="border-collapse: collapse;">
                 <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Nama</th>
+                    <tr style="background-color: #000;">
+                        <th style="border: 3px solid #000; color: #000;">ID</th>
+                        <th style="border: 3px solid #000; color: #000;">NAMA</th>
                         @foreach ($kriterias as $kriteria)
-                            <th>{{ $kriteria->nama_kriteria }}({{ $kriteria->atribut }}:
-                                {{ $kriteria->bobot }})</th>
+                            <th style="border: 3px solid #000; color: #000;">{{ $kriteria->nama_kriteria }} ({{ $kriteria->atribut }}: {{ $kriteria->bobot }})</th>
                         @endforeach
                     </tr>
                 </thead>
                 @foreach ($nilais as $key => $val)
-                    <tr>
-                        <td>{{ $key }}</td>
-                        <td>{{ $alternatifs[$key]->nama_alternatif }}</td>
+                    <tr style="background-color: {{ $loop->odd ? '#fff' : '#eee' }};">
+                        <td style="border: 3px solid #000; color: #000;">{{ $key }}</td>
+                        <td style="border: 3px solid #000; color: #000;">{{ $alternatifs[$key]->nama_alternatif }}</td>
                         @foreach ($val as $k => $v)
-                            <td>{{ $v }}</td>
+                            <td style="border: 3px solid #000; color: #000;">{{ $v }}</td>
                         @endforeach
                     </tr>
                 @endforeach
-                <tr>
-                    <td colspan="2">Min</td>
+                <tr style="background-color: #ffdd57;">
+                    <td colspan="2" style="border: 3px solid #000; font-weight: bold; color: #000;">MIN</td>
                     @foreach ($minmax as $key => $val)
-                        <td>{{ $val['min'] }}</td>
+                        <td style="border: 3px solid #000; color: #000;">{{ $val['min'] }}</td>
                     @endforeach
                 </tr>
-                <tr>
-                    <td colspan="2">Max</td>
+                <tr style="background-color: #ffdd57;">
+                    <td colspan="2" style="border: 3px solid #000; font-weight: bold; color: #000;">MAX</td>
                     @foreach ($minmax as $key => $val)
-                        <td>{{ $val['max'] }}</td>
+                        <td style="border: 3px solid #000; color: #000;">{{ $val['max'] }}</td>
                     @endforeach
                 </tr>
             </table>
@@ -73,25 +72,25 @@
     </div>
 
 {{-- normalisasi --}}
-    <div class="card mb-3">
-        <div class="card-header">
-            Normalisasi
+    <div class="card mb-5" style="border: 4px solid #000; box-shadow: 8px 8px 0 #000;">
+        <div class="card-header" style="border-bottom: 4px solid #000; background-color: #4ecdc4; color: #000; font-family: monospace;">
+            <h5 class="m-0" style="text-transform: uppercase; letter-spacing: 2px;">NORMALISASI</h5>
         </div>
         <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped m-0">
+            <table class="table table-bordered m-0" style="border-collapse: collapse;">
                 <thead>
-                    <tr>
-                        <th>Id</th>
+                    <tr style="background-color: #000;">
+                        <th style="border: 3px solid #000; color: #000;">ID</th>
                         @foreach ($kriterias as $kriteria)
-                            <th>{{ $kriteria->nama_kriteria }} : {{ $kriteria->id_kriteria }}</th>
+                            <th style="border: 3px solid #000; color: #000;">{{ $kriteria->nama_kriteria }} : {{ $kriteria->id_kriteria }}</th>
                         @endforeach
                     </tr>
                 </thead>
                 @foreach ($normal as $key => $val)
-                    <tr>
-                        <td>{{ $key }}</td>
+                    <tr style="background-color: {{ $loop->odd ? '#fff' : '#eee' }};">
+                        <td style="border: 3px solid #000; color: #000;">{{ $key }}</td>
                         @foreach ($val as $k => $v)
-                            <td>{{ round($v, 4) }}</td>
+                            <td style="border: 3px solid #000; color: #000;">{{ round($v, 4) }}</td>
                         @endforeach
                     </tr>
                 @endforeach
@@ -100,25 +99,25 @@
     </div>
 
     {{-- terbobot --}}
-    <div class="card mb-5">
-        <div class="card-header">
-            Terbobot
+    <div class="card mb-5" style="border: 4px solid #000; box-shadow: 8px 8px 0 #000;">
+        <div class="card-header" style="border-bottom: 4px solid #000; background-color: #ffd166; color: #000; font-family: monospace;">
+            <h5 class="m-0" style="text-transform: uppercase; letter-spacing: 2px;">TERBOBOT</h5>
         </div>
         <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped m-0">
+            <table class="table table-bordered m-0" style="border-collapse: collapse;">
                 <thead>
-                    <tr>
-                        <th>Id</th>
+                    <tr style="background-color: #000;">
+                        <th style="border: 3px solid #000; color: #000;">ID</th>
                         @foreach ($kriterias as $kriteria)
-                            <th>{{ $kriteria->nama_kriteria }} : {{ $kriteria->id_kriteria }}</th>
+                            <th style="border: 3px solid #000; color: #000;">{{ $kriteria->nama_kriteria }} : {{ $kriteria->id_kriteria }}</th>
                         @endforeach
                     </tr>
                 </thead>
                 @foreach ($terbobot as $key => $val)
-                    <tr>
-                        <td>{{ $key }}</td>
+                    <tr style="background-color: {{ $loop->odd ? '#fff' : '#eee' }};">
+                        <td style="border: 3px solid #000; color: #000;">{{ $key }}</td>
                         @foreach ($val as $k => $v)
-                            <td>{{ round($v, 4) }}</td>
+                            <td style="border: 3px solid #000; color: #000;">{{ round($v, 4) }}</td>
                         @endforeach
                     </tr>
                 @endforeach

@@ -1,0 +1,85 @@
+ :root {
+            --brutalist-blue: #0055FF;
+            --brutalist-dark-blue: #003399;
+            --brutalist-light-blue: #66A3FF;
+            --brutalist-contrast: #FFFFFF;
+            --brutalist-accent: #FF3300;
+        }
+        
+        body {
+            font-family: 'Space Mono', monospace;
+            background-color: #f0f0f0;
+        }
+        
+        .brutalist-shadow {
+            box-shadow: 8px 8px 0 rgba(0,0,0,0.9);
+        }
+        
+        .brutalist-border {
+            border: 3px solid #000;
+        }
+        
+        .brutalist-sidebar {
+            background-color: var(--brutalist-blue);
+            border-right: 5px solid #000;
+        }
+        
+        .brutalist-nav-item {
+            margin-bottom: 10px;
+            transition: transform 0.2s;
+        }
+        
+        .brutalist-nav-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .brutalist-nav-link {
+            border: 2px solid #000;
+            background-color: var(--brutalist-dark-blue);
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 12px !important;
+        }
+        
+        .brutalist-nav-link.active {
+            background-color: var(--brutalist-light-blue) !important;
+            color: #000 !important;
+            transform: rotate(-1deg);
+        }
+        
+        .brutalist-button {
+            border: 3px solid #000;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            transition: all 0.2s;
+            background-color: var(--brutalist-accent);
+            color: white;
+            box-shadow: 5px 5px 0 #000;
+        }
+        
+        .brutalist-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0 #000;
+        }
+        
+        .brutalist-button:active {
+            transform: translate(0px, 0px);
+            box-shadow: 2px 2px 0 #000;
+        }
+        
+        .brutalist-heading {
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: -1px;
+            border-bottom: 5px solid #000;
+            padding-bottom: 5px;
+            color: var(--brutalist-blue);
+        }
+        
+        .brutalist-card {
+            border: 3px solid #000;
+            border-radius: 0;
+            background-color: white;
+            box-shadow: 8px 8px 0 #000;
+        }

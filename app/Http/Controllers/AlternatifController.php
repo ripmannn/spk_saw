@@ -32,7 +32,7 @@ class AlternatifController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_alternatif' => 'required|string|max:255|unique:tb_alternatif,nama_alternatif',
+            'nama_alternatif' => 'required|string|max:255|unique:tb_alternatif,nama_alternatif|regex:/^[^0-9]*$/',
         ]);
 
         // Ambil ID terakhir
@@ -80,7 +80,7 @@ class AlternatifController extends Controller
     public function update(Request $request, Alternatif $alternatif)
     {
         $request->validate([
-            'nama_alternatif' => 'required|string|max:255',
+            'nama_alternatif' => 'required|string|max:255|unique:tb_alternatif,nama_alternatif|regex:/^[^0-9]*$/',
         ]);
 
         $alternatif->update([

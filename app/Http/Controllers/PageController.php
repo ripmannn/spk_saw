@@ -11,7 +11,7 @@ class PageController extends Controller
 {
     public function index()
     {
-        $title = 'Dashboard Hasil Perhitungan SPK';
+        $title = 'Dashboard SPK';
         
         // Ambil data untuk perhitungan
         $kriterias = [];

@@ -32,7 +32,7 @@ class KriteriaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_kriteria' => 'required|unique:tb_kriteria,nama_kriteria',
+            'nama_kriteria' => 'required|string|unique:tb_kriteria,nama_kriteria|regex:/^[^0-9]*$/',
             'atribut' => 'required|in:Benefit,Cost',
             'bobot' => 'required|numeric|min:0|max:5'
         ]);
@@ -82,9 +82,9 @@ class KriteriaController extends Controller
     public function update(Request $request, Kriteria $kriteria)
     {
         $request->validate([
-            'nama_kriteria' => 'required',
+            'nama_kriteria' => 'required|string|regex:/^[^0-9]*$/',
             'atribut' => 'required|in:benefit,cost',
-            'bobot' => 'required|numeric'
+            'bobot' => 'required|numeric|min:0|max:5'
         ]);
 
         $kriteria->update($request->all());

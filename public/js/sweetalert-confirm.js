@@ -7,10 +7,18 @@ function confirmDelete(event) {
         text: "Data yang dihapus tidak dapat dikembalikan!",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#d33",
-        cancelButtonColor: "#3085d6",
+        confirmButtonColor: "#0066cc", // Brutalist blue
+        cancelButtonColor: "#004080", // Darker blue
         confirmButtonText: "Ya, hapus!",
         cancelButtonText: "Batal",
+        background: "#e6f2ff", // Light blue background
+        borderRadius: "0", // Sharp edges for brutalist style
+        customClass: {
+            popup: 'brutalist-modal',
+            title: 'brutalist-title',
+            confirmButton: 'brutalist-button',
+            cancelButton: 'brutalist-button'
+        }
     }).then((result) => {
         if (result.isConfirmed) {
             // Jika dikonfirmasi, submit form
@@ -28,10 +36,18 @@ function confirmLogout(event) {
         text: "Anda akan keluar dari sesi ini!",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#d33",
-        cancelButtonColor: "#3085d6",
+        confirmButtonColor: "#0066cc", // Brutalist blue
+        cancelButtonColor: "#004080", // Darker blue
         confirmButtonText: "Ya, logout",
         cancelButtonText: "Batal",
+        background: "#e6f2ff", // Light blue background
+        borderRadius: "0", // Sharp edges for brutalist style
+        customClass: {
+            popup: 'brutalist-modal',
+            title: 'brutalist-title',
+            confirmButton: 'brutalist-button',
+            cancelButton: 'brutalist-button'
+        }
     }).then((result) => {
         if (result.isConfirmed) {
             // Jika dikonfirmasi, submit form
