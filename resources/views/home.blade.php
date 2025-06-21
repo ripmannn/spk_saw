@@ -1,20 +1,69 @@
 @extends('app')
 @section('content')
-    <div class="py-2">
-        {{-- Cek apakah pengguna sudah login --}}
-        @auth
-            <div class="alert alert-primary border-3 border-dark" style="border-style: solid; box-shadow: 5px 5px 0px #000;" role="alert">
-                <strong>Selamat datang, {{ Auth::user()->name }}!</strong>
-            </div>
+
+    <div class="card border-4 border-dark " style="border-style: solid; box-shadow: 8px 8px 0px #000;">
+        <div class="card-header bg-warning text-dark border-bottom border-3 border-dark" style="text-transform: uppercase; font-weight: bolder;">
+            <h4 class="mb-0">Import Data</h4>
+        </div>
+        <div class="card-body">
+            <form action="{{ route('import.all') }}" method="POST" enctype="multipart/form-data" class="mb-3">
+                @csrf
+                <div class="d-flex flex-column flex-md-row gap-2">
+                    <input type="file" name="file" accept=".xlsx,.xls" class="form-control border-3 border-dark" style="border-style: solid; box-shadow: 3px 3px 0px #000;">
+                    <button type="submit" class="btn btn-dark border-3 border-warning text-uppercase fw-bold" style="border-style: solid; box-shadow: 5px 5px 0px #ffc107;">
+                        Import Semua Data
+                    </button>
+                </div>
+            </form>
             
-        @else
-            <p class="fs-5 fw-bold">Anda belum login.</p>
-            <a href="{{ route('login') }}" class="btn btn-dark border-3 border-primary" style="border-style: solid; box-shadow: 5px 5px 0px #0d6efd; text-transform: uppercase; font-weight: bold;">Login</a>
-        @endauth
-        <div class="row mt-4 g-4">
+            <a href="{{ route('template.all') }}" id="downloadBtn" class="btn btn-dark border-3 border-success text-uppercase fw-bold" style="border-style: solid; box-shadow: 5px 5px 0px #198754;">
+                Download Template Excel
+            </a>
+        </div>
+    </div>
+
+    @if (session('success'))
+        <div class="alert alert-success border-3 border-dark mt-4" style="border-style: solid; box-shadow: 5px 5px 0px #000;" role="alert">
+            <div class="d-flex justify-content-between align-items-center">
+                <strong class="text-uppercase fw-bold">{{ session('success') }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div class="alert alert-danger border-3 border-dark mt-4" style="border-style: solid; box-shadow: 5px 5px 0px #000;">
+            <h5 class="text-uppercase fw-bold">Error!</h5>
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                    <li><strong>{{ $error }}</strong></li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    @if (isset($errors) && $errors->has('import_errors'))
+        <div class="alert alert-danger border-3 border-dark mb-4" style="border-style: solid; box-shadow: 5px 5px 0px #000;">
+            <h5 class="text-uppercase fw-bold">Detail Error:</h5>
+            <ul class="mb-0">
+                @foreach ($errors->get('import_errors') as $errorList)
+                    @foreach ($errorList as $error)
+                        <li><strong>{{ $error }}</strong></li>
+                    @endforeach
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+
+    <div class="">
+        {{-- Cek apakah pengguna sudah login --}}
+        
+        <div class="row mt-3 g-4">
             <div class="col-lg-8">
                 <div class="card border-4 border-dark" style="border-style: solid; box-shadow: 8px 8px 0px #000;">
-                    <div class="card-header bg-primary text-white border-bottom border-3 border-dark" style="text-transform: uppercase; font-weight: bolder;">
+                    <div class="card-header bg-primary text-white border-bottom border-3 border-dark"
+                        style="text-transform: uppercase; font-weight: bolder;">
                         <h4 class="mb-0">Nilai Total Alternatif</h4>
                     </div>
                     <div class="card-body">
@@ -25,7 +74,8 @@
 
             <div class="col-lg-4">
                 <div class="card border-4 border-dark mb-4" style="border-style: solid; box-shadow: 8px 8px 0px #000;">
-                    <div class="card-header bg-success text-white border-bottom border-3 border-dark" style="text-transform: uppercase; font-weight: bolder;">
+                    <div class="card-header bg-success text-white border-bottom border-3 border-dark"
+                        style="text-transform: uppercase; font-weight: bolder;">
                         <h4 class="mb-0">Ranking Alternatif</h4>
                     </div>
                     <div class="card-body">
@@ -34,7 +84,8 @@
                 </div>
 
                 <div class="card border-4 border-dark" style="border-style: solid; box-shadow: 8px 8px 0px #000;">
-                    <div class="card-header bg-info text-white border-bottom border-3 border-dark" style="text-transform: uppercase; font-weight: bolder;">
+                    <div class="card-header bg-info text-white border-bottom border-3 border-dark"
+                        style="text-transform: uppercase; font-weight: bolder;">
                         <h4 class="mb-0">Top 3 Alternatif</h4>
                     </div>
                     <div class="card-body">
@@ -46,9 +97,11 @@
                             @endphp
 
                             @foreach ($top3 as $label => $value)
-                                <div class="list-group-item d-flex justify-content-between align-items-center mb-2 border-3 border-dark" style="border-style: solid; box-shadow: 3px 3px 0px #000;">
+                                <div class="list-group-item d-flex justify-content-between align-items-center mb-2 border-3 border-dark"
+                                    style="border-style: solid; box-shadow: 3px 3px 0px #000;">
                                     <strong class="text-uppercase">{{ $label }}</strong>
-                                    <span class="badge bg-primary rounded-0 fs-6" style="box-shadow: 2px 2px 0px #000;">{{ number_format($value, 3) }}</span>
+                                    <span class="badge bg-primary rounded-0 fs-6"
+                                        style="box-shadow: 2px 2px 0px #000;">{{ number_format($value, 3) }}</span>
                                 </div>
                             @endforeach
                         </div>
@@ -60,6 +113,7 @@
 
     @push('scripts')
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
         <script>
             // Data dari controller
             const chartData = @json($chartData);
@@ -231,5 +285,6 @@
                 }
             );
         </script>
+
     @endpush
 @endsection

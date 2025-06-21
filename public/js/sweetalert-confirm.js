@@ -14,11 +14,11 @@ function confirmDelete(event) {
         background: "#e6f2ff", // Light blue background
         borderRadius: "0", // Sharp edges for brutalist style
         customClass: {
-            popup: 'brutalist-modal',
-            title: 'brutalist-title',
-            confirmButton: 'brutalist-button',
-            cancelButton: 'brutalist-button'
-        }
+            popup: "brutalist-modal",
+            title: "brutalist-title",
+            confirmButton: "brutalist-button",
+            cancelButton: "brutalist-button",
+        },
     }).then((result) => {
         if (result.isConfirmed) {
             // Jika dikonfirmasi, submit form
@@ -43,11 +43,11 @@ function confirmLogout(event) {
         background: "#e6f2ff", // Light blue background
         borderRadius: "0", // Sharp edges for brutalist style
         customClass: {
-            popup: 'brutalist-modal',
-            title: 'brutalist-title',
-            confirmButton: 'brutalist-button',
-            cancelButton: 'brutalist-button'
-        }
+            popup: "brutalist-modal",
+            title: "brutalist-title",
+            confirmButton: "brutalist-button",
+            cancelButton: "brutalist-button",
+        },
     }).then((result) => {
         if (result.isConfirmed) {
             // Jika dikonfirmasi, submit form
@@ -64,4 +64,39 @@ document.querySelectorAll(".btn-delete").forEach((button) => {
 // Inisialisasi untuk semua form logout
 document.querySelectorAll(".form-logout").forEach((form) => {
     form.addEventListener("submit", confirmLogout);
+});
+
+document.getElementById("downloadBtn").addEventListener("click", function (e) {
+    e.preventDefault();
+
+    // Tampilkan loading
+    Swal.fire({
+        title: "Mempersiapkan file",
+        text: "Template sedang disiapkan...",
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading();
+        },
+    });
+
+    // Simpan URL download
+    const downloadUrl = this.href;
+
+    // Buat iframe tersembunyi untuk trigger download
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.src = downloadUrl;
+    document.body.appendChild(iframe);
+
+    // Asumsikan download selesai dalam 5 detik
+    setTimeout(() => {
+        Swal.close();
+        Swal.fire({
+            icon: "success",
+            title: "Berhasil!",
+            text: "Template berhasil diunduh",
+            confirmButtonText: "OK",
+        });
+        document.body.removeChild(iframe);
+    }, 1200);
 });
